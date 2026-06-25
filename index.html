@@ -303,7 +303,7 @@ nav {
   margin: 0 !important;
 }
 
-/* RESEARCH CARDS */
+/* RESEARCH CARDS - Updated with Arrows */
 .research-section {
   background: var(--ink);
   padding: 8rem 0;
@@ -333,17 +333,52 @@ nav {
   line-height: 1.7;
 }
 
+.cards-wrapper {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
 .cards-scroll {
   display: flex;
   gap: 1.5rem;
-  padding: 0 4rem;
   overflow-x: auto;
-  scrollbar-width: none;
-  max-width: 1300px;
-  margin: 0 auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+  padding: 0.5rem 0;
 }
 
 .cards-scroll::-webkit-scrollbar { display: none; }
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(14,165,233,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-btn:hover {
+  background: var(--cyan);
+  color: var(--ink);
+}
+
+.scroll-left { left: 1rem; }
+.scroll-right { right: 1rem; }
 
 .research-card {
   flex-shrink: 0;
@@ -504,6 +539,74 @@ nav {
   color: var(--ink);
 }
 
+/* PROFESSIONAL EXPERIENCE (NEW) */
+.professional-section {
+  background: var(--paper);
+  color: var(--text);
+  padding: 8rem 0;
+}
+
+.professional-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.professional-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.02em;
+  color: var(--blue);
+  margin-bottom: 4rem;
+}
+
+.professional-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.professional-item {
+  background: rgba(26,58,110,0.04);
+  border-left: 3px solid var(--cyan);
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+}
+
+.professional-item .role {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--blue);
+}
+
+.professional-item .org {
+  font-size: 0.9rem;
+  color: var(--muted);
+  display: block;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.professional-item .desc {
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.7;
+  list-style: none;
+  padding-left: 0;
+}
+
+.professional-item .desc li {
+  margin-bottom: 0.25rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.professional-item .desc li::before {
+  content: "—";
+  color: var(--cyan);
+  position: absolute;
+  left: 0;
+}
+
 /* AWARDS */
 .awards-section {
   background: var(--paper);
@@ -573,6 +676,203 @@ nav {
   border-radius: 2px;
   color: var(--blue);
   font-weight: 600;
+}
+
+/* CERTIFICATIONS (NEW) */
+.certifications-section {
+  background: var(--ink);
+  padding: 8rem 0;
+}
+
+.certifications-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.certifications-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  margin-bottom: 4rem;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.cert-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.cert-item:hover {
+  background: rgba(14,165,233,0.1);
+  border-color: var(--cyan);
+}
+
+.cert-item .year {
+  font-size: 0.7rem;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.cert-item .name {
+  font-size: 0.8rem;
+  color: rgba(245,242,237,0.8);
+  margin-top: 0.25rem;
+}
+
+.cert-item .issuer {
+  font-size: 0.7rem;
+  color: rgba(245,242,237,0.4);
+}
+
+/* CONFERENCES (NEW) */
+.conferences-section {
+  background: var(--paper);
+  color: var(--text);
+  padding: 8rem 0;
+}
+
+.conferences-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.conferences-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.02em;
+  color: var(--blue);
+  margin-bottom: 4rem;
+}
+
+.conference-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.conference-item {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(26,58,110,0.08);
+  padding-bottom: 1rem;
+}
+
+.conference-item .year-badge {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  color: rgba(26,58,110,0.2);
+  flex-shrink: 0;
+  width: 50px;
+}
+
+.conference-item .details {
+  font-size: 0.9rem;
+  color: #374151;
+}
+.conference-item .details strong {
+  color: var(--blue);
+  display: block;
+}
+
+/* === NEW: REFERENCES SECTION === */
+.references-section {
+  background: var(--ink);
+  padding: 8rem 0;
+}
+
+.references-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.references-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  margin-bottom: 4rem;
+}
+
+.references-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.reference-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.reference-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(0,0,0,0.6);
+}
+
+.reference-card h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.4rem;
+  color: var(--paper);
+  margin-bottom: 0.2rem;
+}
+
+.reference-card .ref-title {
+  font-size: 0.8rem;
+  color: var(--cyan);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.reference-card .ref-org {
+  font-size: 0.9rem;
+  color: rgba(245,242,237,0.5);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.reference-card .ref-detail {
+  font-size: 0.8rem;
+  color: rgba(245,242,237,0.7);
+  margin-bottom: 0.3rem;
+  word-break: break-all;
+}
+
+.reference-card .ref-detail a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+.reference-card .ref-detail a:hover {
+  text-decoration: underline;
+}
+
+.reference-card .ref-note {
+  font-size: 0.85rem;
+  color: rgba(245,242,237,0.6);
+  line-height: 1.7;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 1rem;
+  margin-top: 1rem;
+  font-style: italic;
 }
 
 /* CONTACT */
@@ -692,13 +992,22 @@ footer {
   .hero-left { padding: 6rem 2rem 3rem; }
   .story-inner { grid-template-columns: 1fr; gap: 3rem; padding: 0 2rem; }
   .story-num { display: none; }
-  .cards-scroll { padding: 0 2rem; }
+  .cards-wrapper { padding: 0 1rem; }
+  .cards-scroll { padding: 0.5rem 0; }
+  .scroll-btn { display: none; }
   .skills-clusters { grid-template-columns: 1fr; }
   .skills-inner { padding: 0 2rem; }
+  .professional-grid { grid-template-columns: 1fr; }
+  .professional-inner { padding: 0 2rem; }
   .awards-inner { padding: 0 2rem; }
   .award-row { grid-template-columns: 1fr; gap: 0.5rem; }
   .award-year { font-size: 1.2rem; }
   .award-badge { text-align: left; display: inline-block; }
+  .certifications-inner { padding: 0 2rem; }
+  .conference-list { grid-template-columns: 1fr; }
+  .conferences-inner { padding: 0 2rem; }
+  .references-grid { grid-template-columns: 1fr; }
+  .references-inner { padding: 0 2rem; }
   .contact-section { padding: 5rem 2rem; }
   .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 0 2rem 3rem; }
   .section-sub { text-align: left; }
@@ -717,7 +1026,9 @@ footer {
     <li><a href="#story">About</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#professional">Experience</a></li>
     <li><a href="#awards">Awards</a></li>
+    <li><a href="#references">References</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -725,8 +1036,8 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Materials Scientist · MSc Candidate · Moscow 2026</div>
-    <h1 class="hero-name">SHA<br><em>HID</em><br>ALI</h1>
+    <div class="hero-eyebrow">Materials Scientist · Master in Materials Science and Technology · Moscow 2026</div>
+    <h1 class="hero-name">SHAHID<br>ALI</h1>
     <p class="hero-tagline">From polymer electrolytes in Moscow fuel cells to off-grid solar systems in rural Pakistan — bridging atomic-scale materials engineering with real-world energy challenges.</p>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
@@ -734,7 +1045,7 @@ footer {
     </div>
   </div>
   <div class="hero-right">
- <img class="hero-photo" src="linkedin2.jpg" alt="Shahid Ali" />
+<img class="hero-photo" src="linkedin 2.jpg" alt="Shahid Ali" />
     <div class="hero-overlay"></div>
     <div class="hero-stats-bar">
       <div>
@@ -742,11 +1053,11 @@ footer {
         <div class="hero-stat-label">CGPA / 5.0</div>
       </div>
       <div>
-        <div class="hero-stat-num">23</div>
+        <div class="hero-stat-num">31</div>
         <div class="hero-stat-label">DFT Calculations</div>
       </div>
       <div>
-        <div class="hero-stat-num">5×</div>
+        <div class="hero-stat-num">6×</div>
         <div class="hero-stat-label">Int'l Awards</div>
       </div>
     </div>
@@ -781,9 +1092,6 @@ footer {
       <p>
         I began as a <strong>metallurgical engineer</strong> at Mehran University (Pakistan), learning phase diagrams, heat treatment, and failure analysis. My undergraduate thesis investigated aluminium-alloy weld optimization—predicting microhardness from aging parameters using Bayesian machine learning (15% error reduction vs. empirical models).
       </p>
-      <p>
-        After graduation, I joined <strong>SABIC</strong> (Riyadh, Saudi Arabia) as a materials testing trainee. I conducted 100+ SEM/EDS analyses on failed industrial components, reducing unclassified failure modes by 30% through systematic microstructural diagnostics. That year taught me that the hardest materials problems aren't in textbooks—they're in production lines where seconds of downtime cost thousands of dollars.
-      </p>
       <div class="story-quote">
         <p>"The gap between what we can engineer in a lab and what people can actually afford, maintain, and rely on—that's the problem worth solving."</p>
       </div>
@@ -791,12 +1099,12 @@ footer {
         In 2018, I co-founded an <strong>off-grid solar + battery startup</strong> in rural Sindh, Pakistan (flood-affected region). We deployed 15+ systems for 200+ residents with no grid access. The technical challenge—designing 24-hour battery autonomy in 50°C heat with no maintenance infrastructure—forced me to confront energy storage's central paradox: <em>it's too expensive, not durable enough, and not reliable enough for the people who need it most</em>.
       </p>
       <p>
-        That failure drove me to <strong>NUST MISIS</strong> (Moscow), where I won an Open Door Scholarship (top 5% globally) for an MSc in Advanced Materials. My thesis: <strong><em>Fabrication, Optimization, and Theoretical Structure Studies of PVA-Based Electrospun Fibrous Membranes for Ion Conduction Applications</em></strong>.
+        That failure drove me to <strong>NUST MISIS</strong> (Moscow), where I won an Open Door Scholarship (top 5% globally) for an MSc in Advanced Materials. My thesis: <strong><em><a href="https://doi.org/10.13140/RG.2.2.29793.26729" target="_blank" style="color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(26,58,110,0.3);">Fabrication, Optimization, and Theoretical Structure Studies of PVA-Based Electrospun Fibrous Membranes for Ion Conduction Applications</a></em></strong> (<a href="https://doi.org/10.13140/RG.2.2.29793.26729" target="_blank" style="color: var(--blue);">DOI: 10.13140/RG.2.2.29793.26729</a>).
       </p>
       <p>
         The work combines experimental nanofabrication (electrospinning 50+ membrane samples), electrochemical validation (EIS: 41.4 mS/cm conductivity), and multiscale computational modeling:
         <ul style="margin:1rem 0; padding-left:2rem; line-height:1.9;">
-          <li><strong>23 DFT calculations</strong> (ORCA: B3LYP-D3BJ, ωB97X-D3) quantifying cooperative H₃PO₄ binding (−203 kJ/mol), covalent phosphorylation stability (+251.9 kJ/mol), and Grotthuss proton-transfer barriers (19.5 kJ/mol)</li>
+          <li><strong>31 DFT calculations</strong> (ORCA: B3LYP-D3BJ, ωB97X-D3) quantifying cooperative H₃PO₄ binding (−203 kJ/mol), covalent phosphorylation stability (+251.9 kJ/mol), and Grotthuss proton-transfer barriers (19.5 kJ/mol)</li>
           <li><strong>500 ps MD simulations</strong> (LAMMPS, OPLS-AA) showing acid immobilization: P–O RDF peak stable at 4.25 Å, MSD <3 Å² (vs. 18,000 Å² for free diffusion)</li>
           <li><strong>COMSOL fuel-cell modeling</strong> validating the full multiscale chain: model resistance 0.278 Ω vs. experimental EIS 0.276 Ω (0.7% error)</li>
         </ul>
@@ -817,68 +1125,81 @@ footer {
     <h2 class="section-heading">Research &<br>Experience</h2>
     <p class="section-sub">Six years of experimental + computational materials science across three countries and five institutions.</p>
   </div>
-  <div class="cards-scroll">
-    <div class="research-card reveal">
-      <span class="card-icon">⚗️</span>
-      <div class="card-period">2024 — Present</div>
-      <h3 class="card-title">Polymer Electrolyte Membrane Research</h3>
-      <div class="card-org">NUST MISIS · Moscow, Russia</div>
-      <p class="card-body"><strong>Thesis:</strong> <em>Fabrication, Optimization, and Theoretical Structure Studies of PVA-Based Electrospun Fibrous Membranes for Ion Conduction Applications</em>. 23 DFT calculations, 500 ps MD, COMSOL validation (0.7% error vs. EIS). Achieved 41.4 mS/cm proton conductivity. 2 journal papers under review.</p>
-      <div class="card-tags">
-        <span class="card-tag">DFT (ORCA)</span>
-        <span class="card-tag">MD (LAMMPS)</span>
-        <span class="card-tag">Electrospinning</span>
-        <span class="card-tag">EIS</span>
-        <span class="card-tag">SEM/XRD</span>
+  <div class="cards-wrapper">
+    <button class="scroll-btn scroll-left" onclick="scrollCards(-1)">◀</button>
+    <button class="scroll-btn scroll-right" onclick="scrollCards(1)">▶</button>
+    
+    <div class="cards-scroll" id="cardsScroll">
+      <div class="research-card reveal">
+        <span class="card-icon">⚗️</span>
+        <div class="card-period">2024 — Present</div>
+        <h3 class="card-title">Polymer Electrolyte Membrane Research</h3>
+        <div class="card-org">NUST MISIS · Moscow, Russia</div>
+        <p class="card-body"><strong>Thesis:</strong> <em><a href="https://doi.org/10.13140/RG.2.2.29793.26729" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid rgba(14,165,233,0.3);">Fabrication, Optimization, and Theoretical Structure Studies of PVA-Based Electrospun Fibrous Membranes for Ion Conduction Applications</a></em> (<a href="https://doi.org/10.13140/RG.2.2.29793.26729" target="_blank" style="color: var(--cyan);">DOI</a>). <strong>31 DFT calculations</strong>, 500 ps MD, COMSOL validation (0.7% error vs. EIS). Achieved 41.4 mS/cm proton conductivity. 2 journal papers under review.</p>
+        <div class="card-tags">
+          <span class="card-tag">DFT (ORCA)</span>
+          <span class="card-tag">MD (LAMMPS)</span>
+          <span class="card-tag">Electrospinning</span>
+          <span class="card-tag">EIS</span>
+          <span class="card-tag">SEM/XRD</span>
+        </div>
       </div>
-    </div>
-    <div class="research-card reveal reveal-delay-1">
-      <span class="card-icon">🚂</span>
-      <div class="card-period">Feb – Aug 2025</div>
-      <h3 class="card-title">Research Intern — Digital Engineering</h3>
-      <div class="card-org">Skoltech · Moscow, Russia</div>
-      <p class="card-body">Ultrasonic signal-processing for railway SHM. Calibrated 8+ Langevin transducers (95% accuracy). Python/MATLAB signal analysis; ML pattern recognition (SVM, random forest) reduced false positives by 35%.</p>
-      <div class="card-tags">
-        <span class="card-tag">MATLAB</span>
-        <span class="card-tag">Python</span>
-        <span class="card-tag">Signal Processing</span>
-        <span class="card-tag">Machine Learning</span>
+      <div class="research-card reveal reveal-delay-1">
+        <span class="card-icon">🚂</span>
+        <div class="card-period">Feb – Aug 2025</div>
+        <h3 class="card-title">Research Intern — Digital Engineering</h3>
+        <div class="card-org">Skoltech · Moscow, Russia</div>
+        <p class="card-body">Ultrasonic signal-processing for railway SHM. Calibrated 8+ Langevin transducers (95% accuracy). Python/MATLAB signal analysis; ML pattern recognition (SVM, random forest) reduced false positives by 35%.</p>
+        <div class="card-tags">
+          <span class="card-tag">MATLAB</span>
+          <span class="card-tag">Python</span>
+          <span class="card-tag">Signal Processing</span>
+          <span class="card-tag">Machine Learning</span>
+        </div>
       </div>
-    </div>
-    <div class="research-card reveal reveal-delay-2">
-      <span class="card-icon">🔬</span>
-      <div class="card-period">Jan 2014 – Dec 2015</div>
-      <h3 class="card-title">Undergraduate Research — Metallurgy</h3>
-      <div class="card-org">MUET · Jamshoro, Pakistan</div>
-      <p class="card-body">Al6061 weld heat-treatment optimization. Bayesian ML for microhardness prediction (15% error reduction). SEM/EDS failure-mode analysis. Identified optimal aging window: 175°C, 6 h → 20% hardness increase.</p>
-      <div class="card-tags">
-        <span class="card-tag">Metallography</span>
-        <span class="card-tag">SEM/EDS</span>
-        <span class="card-tag">Bayesian ML</span>
+      <div class="research-card reveal reveal-delay-2">
+        <span class="card-icon">🔬</span>
+        <div class="card-period">Jan 2014 – Dec 2015</div>
+        <h3 class="card-title">Undergraduate Research — Metallurgy</h3>
+        <div class="card-org">MUET · Jamshoro, Pakistan</div>
+        <p class="card-body">Al6061 weld heat-treatment optimization. Bayesian ML for microhardness prediction (15% error reduction). SEM/EDS failure-mode analysis. Identified optimal aging window: 175°C, 6 h → 20% hardness increase. (<a href="https://doi.org/10.13140/RG.2.2.32210.06084" target="_blank" style="color: var(--cyan);">Bachelor's Thesis DOI: 10.13140/RG.2.2.32210.06084</a>)</p>
+        <div class="card-tags">
+          <span class="card-tag">Metallography</span>
+          <span class="card-tag">SEM/EDS</span>
+          <span class="card-tag">Bayesian ML</span>
+        </div>
       </div>
-    </div>
-    <div class="research-card reveal reveal-delay-3">
-      <span class="card-icon">☀️</span>
-      <div class="card-period">2018 — 2020</div>
-      <h3 class="card-title">Co-founder — Energy Startup</h3>
-      <div class="card-org">Dadu, Sindh · Pakistan</div>
-      <p class="card-body">Deployed 15+ off-grid solar+battery systems for 200+ rural residents. Managed $20K budget, 5-person team. Designed 24-hour battery autonomy in 50°C ambient with zero maintenance infrastructure. 90% customer satisfaction, but storage cost/durability gap drove pivot to materials R&D.</p>
-      <div class="card-tags">
-        <span class="card-tag">Solar PV</span>
-        <span class="card-tag">Battery Storage</span>
-        <span class="card-tag">Off-grid</span>
+      <div class="research-card reveal reveal-delay-3">
+        <span class="card-icon">☀️</span>
+        <div class="card-period">2018 — 2020</div>
+        <h3 class="card-title">Co-founder — Energy Startup</h3>
+        <div class="card-org">Dadu, Sindh · Pakistan</div>
+        <p class="card-body">Deployed 15+ off-grid solar+battery systems for 200+ rural residents. Managed $20K budget, 5-person team. Designed 24-hour battery autonomy in 50°C ambient with zero maintenance infrastructure. 90% customer satisfaction, but storage cost/durability gap drove pivot to materials R&D.</p>
+        <div class="card-tags">
+          <span class="card-tag">Solar PV</span>
+          <span class="card-tag">Battery Storage</span>
+          <span class="card-tag">Off-grid</span>
+        </div>
       </div>
-    </div>
-    <div class="research-card reveal">
-      <span class="card-icon">📄</span>
-      <div class="card-period">Publications</div>
-      <h3 class="card-title">Research Output (2024–2026)</h3>
-      <div class="card-org">5 papers submitted/under review</div>
-      <p class="card-body"><strong>Under review:</strong> <em>Molecular-Level DFT Analysis of H₃PO₄ Binding</em> (Polymer Bulletin); <em>Covalent Phosphorylation Eliminates Acid Leaching</em> (J. Molecular Modeling); <em>Electrospun PVA Membranes</em> (J. Membrane Sci.); <em>Al6061 Microhardness Bayesian Prediction</em> (IJLMM). <strong>In prep:</strong> <em>Multiscale DFT→MD→COMSOL Validation</em> (ACS Appl. Mater. Interfaces).</p>
-      <div class="card-tags">
-        <span class="card-tag">Electrochemistry</span>
-        <span class="card-tag">DFT/MD</span>
-        <span class="card-tag">Metallurgy</span>
+      <div class="research-card reveal">
+        <span class="card-icon">📄</span>
+        <div class="card-period">Publications</div>
+        <h3 class="card-title">Research Output (2024–2026)</h3>
+        <div class="card-org">5 papers submitted/under review</div>
+        <p class="card-body">
+          <strong>Preprint (2026):</strong> <em><a href="https://doi.org/10.21203/rs.3.rs-9860685/v1" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid rgba(14,165,233,0.3);">Molecular-Level DFT Analysis of Phosphoric Acid Binding, Hydrogen-Bond Cooperativity, and Local Proton Transfer in Poly(vinyl alcohol)/Citric Acid Membrane Models</a></em> (<a href="https://doi.org/10.21203/rs.3.rs-9860685/v1" target="_blank" style="color: var(--cyan);">DOI: 10.21203/rs.3.rs-9860685/v1</a>).<br><br>
+          <strong>Under Review:</strong><br>
+          • <em>Covalent Phosphorylation of PVA Eliminates Acid Leaching without Reducing Proton Donor Activity</em> — J. Molecular Modeling<br>
+          • <em>Molecular-Level DFT Analysis of Phosphoric Acid Binding and Grotthuss Proton Transfer in PVA Membranes</em> — Polymer Bulletin<br>
+          • <em>Facile Fabrication of Electrospun PVA/Citric Acid Membranes: Morphological Evolution via Optimized Doping</em> — J. Membrane Science & Research<br><br>
+          <strong>Decision Pending:</strong> <em>A Novel Approach to Microhardness Prediction in Al6061 Welds: Synergistic Use of Synthetic Data, Experimental Validation, and Bayesian Optimization</em> — Intl. J. Lightweight Materials.<br><br>
+          <strong>In Prep:</strong> <em>Multiscale Validation of Covalent Phosphite Immobilization: DFT to MD to COMSOL</em> — Target: ACS Appl. Mater. Interfaces.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">Electrochemistry</span>
+          <span class="card-tag">DFT/MD</span>
+          <span class="card-tag">Metallurgy</span>
+        </div>
       </div>
     </div>
   </div>
@@ -950,7 +1271,49 @@ footer {
           <span class="skill-pill">Sindhi (Native)</span>
           <span class="skill-pill">Russian (Intermediate)</span>
           <span class="skill-pill">Arabic (Basic)</span>
+          <span class="skill-pill">Persian (Basic)</span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFESSIONAL EXPERIENCE -->
+<section class="professional-section" id="professional">
+  <div class="professional-inner">
+    <h2 class="professional-heading reveal">Professional<br>Experience</h2>
+    <div class="professional-grid">
+      <div class="professional-item reveal">
+        <span class="role">Signal Analyst (BPS-11)</span>
+        <span class="org">Ministry of Defence, Govt. of Pakistan · Rawalpindi/Islamabad</span>
+        <ul class="desc">
+          <li>Monitored/analyzed signal data for defense communication; developed automated dashboards for real-time decision support.</li>
+          <li>Improved workflows via Python scripts (25% time reduction); applied signal processing skills in Skoltech SHM project.</li>
+        </ul>
+      </div>
+      <div class="professional-item reveal reveal-delay-1">
+        <span class="role">Project Monitoring & Evaluation Assistant</span>
+        <span class="org">Sindh Education & Literacy Department · Pakistan</span>
+        <ul class="desc">
+          <li>Digitized 50+ project records (40% reporting time reduction).</li>
+          <li>Implemented data-driven monitoring (15% completion rate increase across 15 districts).</li>
+        </ul>
+      </div>
+      <div class="professional-item reveal reveal-delay-2">
+        <span class="role">Account Officer</span>
+        <span class="org">Ibrahim Hussain Al Qureshi Est. (Al Qureshi Fruits) · KSA</span>
+        <ul class="desc">
+          <li>Managed financial transactions, A/R, A/P, bank reconciliations; prepared monthly statements; ensured Saudi regulatory compliance.</li>
+          <li>Gained cross-cultural KSA work experience; Arabic language exposure.</li>
+        </ul>
+      </div>
+      <div class="professional-item reveal reveal-delay-3">
+        <span class="role">Quality Assurance Intern</span>
+        <span class="org">Aftab Engineering Pvt. Ltd. · Pakistan</span>
+        <ul class="desc">
+          <li>Inspected 1000+ components (20% QC efficiency improvement).</li>
+          <li>Optimized processes (15% waste reduction in machining).</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -959,7 +1322,7 @@ footer {
 <!-- AWARDS -->
 <section class="awards-section" id="awards">
   <div class="awards-inner">
-    <h2 class="awards-heading reveal">Recognition</h2>
+    <h2 class="awards-heading reveal">Scholarships &<br>Awards</h2>
     <div class="awards-list">
       <div class="award-row reveal">
         <div class="award-year">2024</div>
@@ -967,13 +1330,13 @@ footer {
           <strong>Open Door International Scholarship</strong>
           <span>Russian Scholarship Project · Top 5% globally in Materials Science · Full MSc funding</span>
         </div>
-        <div class="award-badge">Full Scholarship</div>
+        <div class="award-badge">Top 5%</div>
       </div>
       <div class="award-row reveal">
         <div class="award-year">2023</div>
         <div class="award-info">
           <strong>Triple International Award Winner</strong>
-          <span>ISCO (Iran) · IAC Nanomaterials (Iran) · Early Bird (LUT, Finland) · Three competitive awards in one year</span>
+          <span>ISCO (Iran) · IAC Nanomaterials (Iran) · Early Bird (LUT, Finland)</span>
         </div>
         <div class="award-badge">3 Awards</div>
       </div>
@@ -983,7 +1346,7 @@ footer {
           <strong>UNESCO/Poland Engineering Fellowship</strong>
           <span>Warsaw, Poland · 1 of 20 recipients selected globally</span>
         </div>
-        <div class="award-badge">Global Top 20</div>
+        <div class="award-badge">Global 20</div>
       </div>
       <div class="award-row reveal">
         <div class="award-year">2016</div>
@@ -992,6 +1355,102 @@ footer {
           <span>Government of Pakistan · National merit scholarship for engineering excellence</span>
         </div>
         <div class="award-badge">National</div>
+      </div>
+      <div class="award-row reveal">
+        <div class="award-year">2015</div>
+        <div class="award-info">
+          <strong>Panaflex Shield of Merit</strong>
+          <span>MUET · Academic excellence in Metallurgy & Materials Engineering</span>
+        </div>
+        <div class="award-badge">Merit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certifications-section" id="certifications">
+  <div class="certifications-inner">
+    <h2 class="certifications-heading reveal">Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-item reveal"><span class="year">2025</span><div class="name">Principles of Chemical Science</div><div class="issuer">MIT, USA</div></div>
+      <div class="cert-item reveal"><span class="year">2025</span><div class="name">Renewable Energy Engineering</div><div class="issuer">NPTEL, India</div></div>
+      <div class="cert-item reveal"><span class="year">2025</span><div class="name">3D Printing</div><div class="issuer">HP LIFE</div></div>
+      <div class="cert-item reveal"><span class="year">2025</span><div class="name">AI & Data Science (6-month)</div><div class="issuer">Codonics</div></div>
+      <div class="cert-item reveal"><span class="year">2024</span><div class="name">R Language Course</div><div class="issuer">Codonics</div></div>
+      <div class="cert-item reveal"><span class="year">2024</span><div class="name">Chemistry</div><div class="issuer">CURSA / Khan Academy</div></div>
+      <div class="cert-item reveal"><span class="year">2015</span><div class="name">AutoCAD</div><div class="issuer">MUET</div></div>
+      <div class="cert-item reveal"><span class="year">2014</span><div class="name">Magnetic Particle & Dye Penetration</div><div class="issuer">MMAC, MUET</div></div>
+      <div class="cert-item reveal"><span class="year">2014</span><div class="name">Numerical Methods & Computation</div><div class="issuer">MUET</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFERENCES -->
+<section class="conferences-section" id="conferences">
+  <div class="conferences-inner">
+    <h2 class="conferences-heading reveal">Conferences &<br>Engagements</h2>
+    <div class="conference-list">
+      <div class="conference-item reveal">
+        <div class="year-badge">2025</div>
+        <div class="details"><strong>Water Policy Development (UN SDG-6)</strong>A-LAB, NUST MISIS — Researcher</div>
+      </div>
+      <div class="conference-item reveal">
+        <div class="year-badge">2025</div>
+        <div class="details"><strong>Skoltech SMILES Summer School</strong>Skoltech, Moscow</div>
+      </div>
+      <div class="conference-item reveal">
+        <div class="year-badge">2024</div>
+        <div class="details"><strong>International Materials Science Conference</strong>NUST MISIS</div>
+      </div>
+      <div class="conference-item reveal">
+        <div class="year-badge">2024</div>
+        <div class="details"><strong>Skoltech Frontier of Progress & Matter & Materials Symposium</strong>Skoltech, Moscow</div>
+      </div>
+      <div class="conference-item reveal">
+        <div class="year-badge">2014</div>
+        <div class="details"><strong>Career Fair & Festivals Volunteer</strong>MUET, Pakistan</div>
+      </div>
+      <div class="conference-item reveal">
+        <div class="year-badge">2013</div>
+        <div class="details"><strong>Organizer — 20+ Study Tours & Competitions</strong>MMAC, MUET</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === NEW: REFERENCES === -->
+<section class="references-section" id="references">
+  <div class="references-inner">
+    <h2 class="references-heading reveal">Academic<br>References</h2>
+    <div class="references-grid">
+      <!-- Reference 1: Salimon -->
+      <div class="reference-card reveal">
+        <h3>Professor Alexey I. Salimon</h3>
+        <p class="ref-title">Academic Advisor &amp; Thesis Supervisor</p>
+        <p class="ref-org">Head of Physical Chemistry, NUST MISIS</p>
+        <p class="ref-detail">📧 <a href="mailto:a.salimon@misis.ru">a.salimon@misis.ru</a></p>
+        <p class="ref-detail">📞 +7 926 059 73 14</p>
+        <p class="ref-note">"Professor Salimon is my current Master's thesis advisor. He can attest to my experimental expertise in membrane electrospinning, electrochemical impedance spectroscopy (EIS), and my research into high-performance fuel cell and battery materials."</p>
+      </div>
+
+      <!-- Reference 2: Panayi -->
+      <div class="reference-card reveal reveal-delay-1">
+        <h3>Professor Andreas Panayi</h3>
+        <p class="ref-title">Research Internship Supervisor</p>
+        <p class="ref-org">Head of Cyber-Physical Lab, Skoltech</p>
+        <p class="ref-detail">📧 <a href="mailto:A.Panayi@skoltech.ru">A.Panayi@skoltech.ru</a></p>
+        <p class="ref-note">"Professor Panayi supervised my research internship at Skoltech. He can provide insights into my proficiency with computational tools such as MATLAB and Python, my experience in structural health monitoring, and my ability to integrate data-driven approaches into materials engineering."</p>
+      </div>
+
+      <!-- Reference 3: Aftab -->
+      <div class="reference-card reveal reveal-delay-2">
+        <h3>Professor Umair Aftab</h3>
+        <p class="ref-title">Department Head &amp; Undergraduate Mentor</p>
+        <p class="ref-org">Chairman, Metallurgy &amp; Materials, MUET</p>
+        <p class="ref-detail">📧 <a href="mailto:Umair.aftab@faculty.muet.edu.pk">Umair.aftab@faculty.muet.edu.pk</a></p>
+        <p class="ref-detail">📞 +92 333 2708255</p>
+        <p class="ref-note">"As the Chairman of my undergraduate department, Professor Aftab has overseen my foundational academic growth in materials science. He can verify my early research in mechanical properties and my strong performance in core engineering disciplines."</p>
       </div>
     </div>
   </div>
@@ -1005,6 +1464,8 @@ footer {
       <a href="mailto:shahid.lakhair1@gmail.com" class="contact-btn primary">✉ shahid.lakhair1@gmail.com</a>
       <a href="https://www.linkedin.com/in/shahid-ali-b3b616110/" target="_blank" class="contact-btn">in LinkedIn</a>
       <a href="mailto:m2415535@edu.misis.ru" class="contact-btn">🎓 University Email</a>
+      <a href="CV_Shahid.pdf" class="contact-btn">📄 Download CV</a>
+      <a href="https://www.researchgate.net/profile/Shahid-Ali-64?ev=hdr_xprf" target="_blank" class="contact-btn">🔬 ResearchGate</a>
     </div>
   </div>
 </section>
@@ -1049,6 +1510,14 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Research Cards - Arrow Scroll
+function scrollCards(direction) {
+  const container = document.getElementById('cardsScroll');
+  const cardWidth = 340 + 24; // width + gap
+  const scrollAmount = cardWidth * 2; // scroll by 2 cards
+  container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
 </script>
 </body>
 </html>
